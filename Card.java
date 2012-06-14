@@ -34,6 +34,6 @@ public class Card {
 	}
 	
 	public String toString () {
-		return String.format("%d of %s", rank, suit);
+		return String.format("%d", rank);
 	}
 }

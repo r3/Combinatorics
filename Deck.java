@@ -8,7 +8,7 @@ public class Deck {
 	
 	public Deck () {
 		for (Suit suit : Suit.values()) {
-			for (int rank=1; rank <= 4; rank++) {
+			for (int rank=1; rank <= 13; rank++) {
 				cards.add(new Card(suit, rank));
 			}
 		}

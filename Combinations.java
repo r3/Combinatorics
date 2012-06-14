@@ -16,7 +16,7 @@ public class Combinations<E> implements Iterator<ArrayList<E>> {
 		Deck deck = new Deck();
 		Combinations<Card> combos = new Combinations<Card>(deck.asList(), 4);
 		
-		for (int gen=0; gen <= 5; gen++) {
+		for (int gen=0; gen <= 50; gen++) {
 			System.out.println(combos.next());
 		}
 	}
