@@ -31,12 +31,19 @@ public class FindRatio {
     	ScriptEngineManager mgr = new ScriptEngineManager();
     	engine = mgr.getEngineByName("JavaScript");
     	
-    	// The remaining code in this method deals with operation generation
-    	String[] operations = new String[] {"+", "-", "*", "/"};
+    	/* Here's where I expect the "freezing" issue to be.
+    	 * Generating and retaining such a long list as `expressions`
+    	 * requires a good deal of memory, but I don't want to have to
+    	 * generate it every time I iterate over it.
+    	 */
+    	
+    	// This line allows me to do permutations with replacements
+    	String[] operations = new String[] {"+", "+", "+", "-", "-", "-",
+    			"*", "*", "*", "/", "/", "/"};  // Sorry for the hack
     	Permutations<String> operationPermutations = 
     			new Permutations<String>(Arrays.asList(operations), 3); 
-    	
-    	
+
+    	// Construct strings like "%s + %s + %s + %s" for interpolation
         while (operationPermutations.hasNext()) {
         	StringBuilder sb = new StringBuilder();
         	for (String operation : operationPermutations.next()) {
